@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Xiner的博客</title>
+  <title>Icey的博客</title>
   
   <subtitle>Icey和Xiner的故事才刚刚开始...</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://iceyxiner.github.io/</id>
   
   <author>
-    <name>Alex</name>
+    <name>Icey</name>
     
   </author>
   
