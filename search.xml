@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[archives]]></title>
-    <url>%2F2019%2F05%2F22%2Farchives%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[about]]></title>
-    <url>%2F2019%2F05%2F22%2Fabout%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[categories]]></title>
-    <url>%2F2019%2F05%2F22%2Fcategories%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[tags]]></title>
-    <url>%2F2019%2F05%2F22%2Ftags%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[数据结构-静态链表]]></title>
     <url>%2F2019%2F05%2F21%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8%2F</url>
     <content type="text"><![CDATA[数据结构-静态链表1、静态链表的简介 &emsp;&emsp;在一些早期的编程语言，由于没有指针的概念，有人想到了用数组来实现单链表的方法，改进了顺序存储结构中插入和删除操作需要移动大量元素的缺点。实现逻辑简单来说，是让数组的元素由两个数据域组成，data和cur。数组的每个下标都对应一个数据存放域data和一个游标cur。游标cur相当于单链表中的next指针，存放该元素的后继在数组中的下标，从而用游标来记录每个元素的顺序。所以，用数组描述的链表叫做静态链表。 2、静态链表的储存结构1234567#define MAXSIZE 20#define ElemType inttypedef struct &#123; ElemType data; int cur;&#125; StaticLinkedList[MAXSIZE]; 3、静态链表的初始化 当静态链表为空时，头结点指向的备用链表的第一个元素(也就是空结点链表)下标为1，尾结点指向的第一个插入元素下标为0。 当静态链表装填了6个数据时，头结点指向的备用链表的第一个元素(也就是空结点链表)下标为7，尾结点指向的第一个插入元素下标为1。 123456789101112131415161718192021/*** 初始化静态链表* 例:* 下标 0 1 2 3 4 5 6 7 8 9* 游标 1 2 3 4 5 6 7 8 9 0* 数据 头 - - - - - - - - 尾* 其中 头结点、尾结点、空结点数据为空* 头结点的游标cur存放备用链表第一个结点的下标* 尾结点的游标cur存放第一个插入元素的下标* @param space* @return Status*/Status InitList(StaticLinkedList space) &#123; for (int i = 0; i &lt; MAXSIZE - 1; i++)&#123; space[i].cur = i + 1; space[i].data = 0; &#125; space[MAXSIZE - 1].cur = 0; return OK;&#125; 4、静态链表的插入 当一个新元素被填装到静态链表里，通过插入位置前置元素游标和新元素游标的改变，使得该元素被连接到静态链表的任意位置中。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677/*** 取得StaticLinkedList的长度* @param L* @return int Length*/int Length(StaticLinkedList L)&#123; int j = 0; //从尾结点获取第一个有元素的结点 int i = L[MAXSIZE - 1].cur; //遍历计数 while (i) &#123; i = L[i].cur; j++; &#125; return j;&#125;/*** 若备用空间链表非空,则返回分配的结点下标,否则返回0* 例:* 下标 0 1 2 3 4 5 6 7 8 9* 游标 4 2 3 4 0 6 7 8 9 1* 数据 头 + + + + - - - - 尾* @param space* @return 分配的链表下标*/int Malloc_SLL(StaticLinkedList space) &#123; int i = space[0].cur; //当前数组第一个元素cur存的值,即链表总长的下个元素的下标 if (space[0].cur) //判断是否为链表尾 space[0].cur = space[i].cur; //将这个空间分量分配出去,并取下个分量备用 return i;&#125;/*** 在L中第i个元素之前插入新的数据元素e* 例(插入前):* 下标 0 1 2 3 4 5 6 7 8 9* 游标 4 2 3 4 0 6 7 8 9 1* 数据 头 + + + + - - - - 尾* 例(插入后, i=3):* |----------&gt;|(2-&gt;5)* 下标 0 1 2 3 4 5 6 7 8 9* 游标 4 2 5 4 0 6 7 8 9 1* 数据 头 + + + + * - - - 尾* |&lt;------|(5-&gt;3)* @param L* @param i 在下标为i的元素前,插入一个新的元素* @param e 新元素* @return Status*/Status Insert(StaticLinkedList L, int i, ElemType e) &#123; //判断是否越界 if (i &lt; 1 || i &gt; Length(L) + 1) &#123; return ERROR; &#125; int j = Malloc_SLL(L); //尾结点下标 int k = MAXSIZE - 1; if (j) &#123; //为新元素赋值 L[j].data = e; //找到插入元素的前一个元素的游标 for (int l = 1; l &lt;= i - 1; l++) k = L[k].cur; /* * 简单的来说 * ① | ② | ③ * ① 是插入元素前的元素,下标为k,下一元素下标为L[k].cur * ② 是新插入元素,下标为j,下一元素下标为L[j].cur * ③ 是插入元素后的元素,即插入前在①的下一位,插入后在②的下一位,下标为L[k].cur */ L[j].cur = L[k].cur; //将②的游标定为③ L[k].cur = j; //将①的游标定为 return OK; &#125; return ERROR;&#125; 5、静态链表的删除 当一个元素从静态链表删除时，通过删除位置前置元素游标和删除元素游标的改变，使得该元素被从静态链表中解除，并将该删除元素使用头插法连接到头结点索引的备用链表中。该元素会在分配空间向量时优先被使用。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364/*** 取得StaticLinkedList的长度* @param L* @return int Length*/int Length(StaticLinkedList L)&#123; int j = 0; //从尾结点获取第一个有元素的结点 int i = L[MAXSIZE - 1].cur; //遍历计数 while (i) &#123; i = L[i].cur; j++; &#125; return j;&#125;/*** 将下标为k的空闲结点回收到到备用链表* 也就是将删除数据后的空结点直接排在头结点后,并将之前的第一个空结点排在它之后* @param space* @param k 删除下标为k的元素*/void Free_SSL(StaticLinkedList space, int k) &#123; space[k].cur = space[0].cur; space[0].cur = k;&#125;/*** 删除下标为i的结点* 在L中第i个元素之前插入新的数据元素e* 例(删除前):* |-------------------------------&gt;|(头结点指向第一个空结点)* 下标 0 1 2 3 4 5 6 7 8 9* 游标 8 2 7 4 0 6 0 3 9 1* 数据 头 + + + + + + * - 尾* 例(删除后, i=1):* |---&gt;|(头结点先指向删除后的备用结点)* |&lt;--------------------------|(尾结点指向第一个非空的结点)* 下标 0 1 2 3 4 5 6 7 8 9* 游标 1 8 7 4 5 6 0 3 9 2* 数据 头 - + + + + + * - 尾* |--------------------------&gt;|(头结点的后继元素再指向删除前的第一个空结点)* @param L* @param i 删除第i个结点* @return*/Status Delete(StaticLinkedList L, int i) &#123; int j; //判断是否越界 if (i &lt; 1 || i &gt; Length(L)) return ERROR; //尾结点下标 int k = MAXSIZE - 1; //k = 第i-1个元素的下标 for (j = 1; j &lt;= i - 1; j++) k = L[k].cur; //j = 第i个元素的下标 //解除第i个元素前后索引 j = L[k].cur; L[k].cur = L[j].cur; //回收空结点 L[j].data = - 1; Free_SSL(L, j); return OK;&#125; 6、静态链表优缺点 优点:&emsp;在插入和删除操作时，只需要修改游标，不需要移动元素，从而改进了顺序存储结构中插入和删除操作需要移动大量元素的缺点。 缺点:&emsp;没有解决连续存储分配带来的表长难以确定的问题；失去了顺序存储结构随机存取的特性。]]></content>
