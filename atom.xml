@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Icey</title>
+  <title>ICEY</title>
   
-  <subtitle>Icey的故事才刚刚开始...</subtitle>
+  <subtitle>ICEY的故事才刚刚开始...</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iceyxiner.github.io/"/>
@@ -10,7 +10,7 @@
   <id>https://iceyxiner.github.io/</id>
   
   <author>
-    <name>Icey</name>
+    <name>ICEY</name>
     
   </author>
   
