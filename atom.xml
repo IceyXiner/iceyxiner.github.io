@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Alex</title>
+  <title>Xiner的博客</title>
   
-  <subtitle>Alex的故事才刚刚开始...</subtitle>
+  <subtitle>Icey和Xiner的故事才刚刚开始...</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iceyxiner.github.io/"/>
