@@ -85,7 +85,7 @@
 
 
 
-  <meta name="keywords" content="数据结构,栈,">
+  <meta name="keywords" content="数据结构,链式存储结构,栈,">
 
 
 
@@ -98,21 +98,22 @@
 
 
 
-<meta name="description" content="数据结构-栈1、栈的定义 &amp;emsp;&amp;emsp;栈是限定仅在表尾进行插入和删除操作的线性表。我们把允许插入和删除的一端称为栈顶, 另一端称为栈底, 不含任何数据元素的栈称为空栈。栈又称为后进先出(Last In First Out)的线性表，简称LIFO结构。">
-<meta name="keywords" content="数据结构,栈">
+<meta name="description" content="数据结构-链式栈1、链式栈的简介 &amp;emsp;&amp;emsp;栈（stack）又名堆栈，它是一种运算受限的线性表。其限制是仅允许在表的一端进行插入和删除运算。这一端被称为栈顶，相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。">
+<meta name="keywords" content="数据结构,链式存储结构,栈">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构-栈">
-<meta property="og:url" content="https://iceyxiner.github.io/2019/06/03/数据结构-栈/index.html">
+<meta property="og:title" content="数据结构-链式栈">
+<meta property="og:url" content="https://iceyxiner.github.io/2019/06/10/数据结构-链式栈/index.html">
 <meta property="og:site_name" content="ICEY">
-<meta property="og:description" content="数据结构-栈1、栈的定义 &amp;emsp;&amp;emsp;栈是限定仅在表尾进行插入和删除操作的线性表。我们把允许插入和删除的一端称为栈顶, 另一端称为栈底, 不含任何数据元素的栈称为空栈。栈又称为后进先出(Last In First Out)的线性表，简称LIFO结构。">
+<meta property="og:description" content="数据结构-链式栈1、链式栈的简介 &amp;emsp;&amp;emsp;栈（stack）又名堆栈，它是一种运算受限的线性表。其限制是仅允许在表的一端进行插入和删除运算。这一端被称为栈顶，相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://iceyxiner.github.io/2019/06/03/数据结构-栈/栈-入栈.png">
-<meta property="og:image" content="https://iceyxiner.github.io/2019/06/03/数据结构-栈/栈-出栈.png">
-<meta property="og:updated_time" content="2019-06-03T11:57:19.000Z">
+<meta property="og:image" content="https://iceyxiner.github.io/2019/06/10/数据结构-链式栈/链式栈-结构.png">
+<meta property="og:image" content="https://iceyxiner.github.io/2019/06/10/数据结构-链式栈/链式栈-插入.png">
+<meta property="og:image" content="https://iceyxiner.github.io/2019/06/10/数据结构-链式栈/链式栈-删除.png">
+<meta property="og:updated_time" content="2019-06-06T11:04:24.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构-栈">
-<meta name="twitter:description" content="数据结构-栈1、栈的定义 &amp;emsp;&amp;emsp;栈是限定仅在表尾进行插入和删除操作的线性表。我们把允许插入和删除的一端称为栈顶, 另一端称为栈底, 不含任何数据元素的栈称为空栈。栈又称为后进先出(Last In First Out)的线性表，简称LIFO结构。">
-<meta name="twitter:image" content="https://iceyxiner.github.io/2019/06/03/数据结构-栈/栈-入栈.png">
+<meta name="twitter:title" content="数据结构-链式栈">
+<meta name="twitter:description" content="数据结构-链式栈1、链式栈的简介 &amp;emsp;&amp;emsp;栈（stack）又名堆栈，它是一种运算受限的线性表。其限制是仅允许在表的一端进行插入和删除运算。这一端被称为栈顶，相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。">
+<meta name="twitter:image" content="https://iceyxiner.github.io/2019/06/10/数据结构-链式栈/链式栈-结构.png">
 
 
 
@@ -142,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="https://iceyxiner.github.io/2019/06/03/数据结构-栈/">
+  <link rel="canonical" href="https://iceyxiner.github.io/2019/06/10/数据结构-链式栈/">
 
 
 
 
 
-  <title>数据结构-栈 | ICEY</title>
+  <title>数据结构-链式栈 | ICEY</title>
   
 
 
@@ -307,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://iceyxiner.github.io/2019/06/03/数据结构-栈/">
+    <link itemprop="mainEntityOfPage" href="https://iceyxiner.github.io/2019/06/10/数据结构-链式栈/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ICEY">
@@ -324,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数据结构-栈</h1>
+          <h1 class="post-title" itemprop="name headline">数据结构-链式栈</h1>
         
 
         <div class="post-meta">
@@ -336,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T17:40:00+08:00">
-                2019-06-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-10T10:00:00+08:00">
+                2019-06-10
               </time>
             
 
@@ -396,82 +397,27 @@
       
 
       
-        <h1 id="数据结构-栈"><a href="#数据结构-栈" class="headerlink" title="数据结构-栈"></a>数据结构-栈</h1><h2 id="1、栈的定义"><a href="#1、栈的定义" class="headerlink" title="1、栈的定义"></a>1、栈的定义</h2><blockquote>
-<p>&emsp;&emsp;栈是限定仅在表尾进行插入和删除操作的线性表。我们把允许插入和删除的一端称为栈顶, 另一端称为栈底, 不含任何数据元素的栈称为空栈。栈又称为后进先出(Last In First Out)的线性表，简称LIFO结构。</p>
+        <h1 id="数据结构-链式栈"><a href="#数据结构-链式栈" class="headerlink" title="数据结构-链式栈"></a>数据结构-链式栈</h1><h2 id="1、链式栈的简介"><a href="#1、链式栈的简介" class="headerlink" title="1、链式栈的简介"></a>1、链式栈的简介</h2><blockquote>
+<p>&emsp;&emsp;栈（stack）又名堆栈，它是一种运算受限的线性表。其限制是仅允许在表的一端进行插入和删除运算。这一端被称为栈顶，相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="2、栈的基本操作"><a href="#2、栈的基本操作" class="headerlink" title="2、栈的基本操作"></a>2、栈的基本操作</h2><p>2.1 栈的插入操作(压栈、入栈)</p>
-<p><img src="/2019/06/03/数据结构-栈/栈-入栈.png" alt></p>
-<p>2.2 栈的删除操作(弹栈、出栈)</p>
-<p><img src="/2019/06/03/数据结构-栈/栈-出栈.png" alt></p>
-<h2 id="3、栈的抽象数据类型"><a href="#3、栈的抽象数据类型" class="headerlink" title="3、栈的抽象数据类型"></a>3、栈的抽象数据类型</h2><table>
-<thead>
-<tr>
-<th>ADT</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>栈{stack)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Data</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>同线性表。元素具有相同的类型，相邻元素具有前驱和后继关系。</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Operation</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>InitStack(*S)</td>
-<td>初始化操作，建立一个空栈S</td>
-</tr>
-<tr>
-<td>DestroyStack(*S)</td>
-<td>若栈存在，则销毁它</td>
-</tr>
-<tr>
-<td>ClearStack(*S)</td>
-<td>将栈清空</td>
-</tr>
-<tr>
-<td>GetStackTop(S, *e)</td>
-<td>若栈存在且非空，用e返回s的栈顶元素</td>
-</tr>
-<tr>
-<td>Push(*s, e)</td>
-<td>若栈S存在， 插入新元素e到栈S中并成为栈项元素g</td>
-</tr>
-<tr>
-<td>Pop(<em>S, </em>e)</td>
-<td>删除栈s中栈顶元素，并用e返回其值</td>
-</tr>
-<tr>
-<td>IsEmpty(S)</td>
-<td>若栈为空，返回TRUE，否则返回FALSE </td>
-</tr>
-<tr>
-<td>Length(S)</td>
-<td>返回栈s的元素个数</td>
-</tr>
-</tbody>
-</table>
+<h2 id="2、链式栈的存储结构"><a href="#2、链式栈的存储结构" class="headerlink" title="2、链式栈的存储结构"></a>2、链式栈的存储结构</h2><p><img src="/2019/06/10/数据结构-链式栈/链式栈-结构.png" alt></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> SElemtype <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 栈结点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">StackNode</span> &#123;</span></span><br><span class="line">    SElemtype data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">StackNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; StackNode, *LinkedStackPtr;</span><br><span class="line"><span class="comment">// 栈顶结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LinkedStack</span> &#123;</span></span><br><span class="line">    <span class="comment">// 栈顶指针</span></span><br><span class="line">    LinkedStackPtr top;</span><br><span class="line">    <span class="comment">// 栈内元素个数</span></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">&#125; LinkedStack;</span><br></pre></td></tr></table></figure>
+<h2 id="3、链式栈的初始化"><a href="#3、链式栈的初始化" class="headerlink" title="3、链式栈的初始化"></a>3、链式栈的初始化</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 初始化栈内元素</span></span><br><span class="line"><span class="comment"> * @param S 栈顶指针</span></span><br><span class="line"><span class="comment"> * @param n 初始化元素个数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitLinkedStack</span><span class="params">(LinkedStack *S, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义栈顶指针</span></span><br><span class="line">    LinkedStackPtr p;</span><br><span class="line">    <span class="comment">// 初始化随机种子</span></span><br><span class="line">    srand(<span class="keyword">time_t</span>(<span class="number">0</span>));</span><br><span class="line">    <span class="comment">// LOOP</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="comment">// 给栈结点分配内存空间</span></span><br><span class="line">        p = (LinkedStackPtr) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(StackNode));</span><br><span class="line">        p-&gt;data = rand() % <span class="number">100</span> + <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 压栈</span></span><br><span class="line">        p-&gt;next = S-&gt;top;</span><br><span class="line">        S-&gt;top = p;</span><br><span class="line">    &#125;</span><br><span class="line">    S-&gt;count = n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4、链式栈的插入（压栈，入栈）"><a href="#4、链式栈的插入（压栈，入栈）" class="headerlink" title="4、链式栈的插入（压栈，入栈）"></a>4、链式栈的插入（压栈，入栈）</h2><p><img src="/2019/06/10/数据结构-链式栈/链式栈-插入.png" alt></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 压栈</span></span><br><span class="line"><span class="comment"> * @param S 栈顶指针</span></span><br><span class="line"><span class="comment"> * @param e 压入栈的元素</span></span><br><span class="line"><span class="comment"> * @return Status</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Status <span class="title">Push</span><span class="params">(LinkedStack *S, SElemtype e)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 为栈节点分配内存空间</span></span><br><span class="line">    LinkedStackPtr p = (LinkedStackPtr) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(StackNode));</span><br><span class="line">    p-&gt;data = e;</span><br><span class="line">    <span class="comment">// 压栈</span></span><br><span class="line">    p-&gt;next = S-&gt;top;</span><br><span class="line">    S-&gt;count++;</span><br><span class="line">    S-&gt;top = p;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5、链式栈的删除（弹栈、出栈）"><a href="#5、链式栈的删除（弹栈、出栈）" class="headerlink" title="5、链式栈的删除（弹栈、出栈）"></a>5、链式栈的删除（弹栈、出栈）</h2><p><img src="/2019/06/10/数据结构-链式栈/链式栈-删除.png" alt></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 弹栈</span></span><br><span class="line"><span class="comment"> * @param S 栈顶指针</span></span><br><span class="line"><span class="comment"> * @param e 弹出元素</span></span><br><span class="line"><span class="comment"> * @return Status</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Status <span class="title">Pop</span><span class="params">(LinkedStack *S, SElemtype *e = <span class="literal">nullptr</span>)</span> </span>&#123;</span><br><span class="line">    LinkedStackPtr p;</span><br><span class="line">    <span class="comment">// 判断栈是否为空，空则不执行弹栈操作</span></span><br><span class="line">    <span class="keyword">if</span> (!S-&gt;count) &#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 判断弹出元素地址是否为空，空则不执行赋值操作</span></span><br><span class="line">    <span class="keyword">if</span> (e)</span><br><span class="line">        *e = S-&gt;top-&gt;data;</span><br><span class="line">    <span class="comment">// 弹栈</span></span><br><span class="line">    p = S-&gt;top;</span><br><span class="line">    S-&gt;top = S-&gt;top-&gt;next;</span><br><span class="line">    S-&gt;count--;</span><br><span class="line">    <span class="comment">// 释放空间</span></span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6、链式栈的清空"><a href="#6、链式栈的清空" class="headerlink" title="6、链式栈的清空"></a>6、链式栈的清空</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 清空栈中内容</span></span><br><span class="line"><span class="comment"> * @param S 栈顶指针</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ClearLinkedStack</span><span class="params">(LinkedStack *S)</span> </span>&#123;</span><br><span class="line">    LinkedStackPtr p;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; S-&gt;count; ++i) &#123;</span><br><span class="line">        <span class="comment">// 循环删除结点，释放内存</span></span><br><span class="line">        p = S-&gt;top;</span><br><span class="line">        S-&gt;top = S-&gt;top-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(p);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计数器置零</span></span><br><span class="line">    S-&gt;count = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7、获取栈中的元素"><a href="#7、获取栈中的元素" class="headerlink" title="7、获取栈中的元素"></a>7、获取栈中的元素</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">SElemtype <span class="title">GetLinkedStackTop</span><span class="params">(LinkedStack S)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> S.top-&gt;data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8、判断栈是否为空"><a href="#8、判断栈是否为空" class="headerlink" title="8、判断栈是否为空"></a>8、判断栈是否为空</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(LinkedStack S)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !S.count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="9、栈的长度"><a href="#9、栈的长度" class="headerlink" title="9、栈的长度"></a>9、栈的长度</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Length</span><span class="params">(LinkedStack S)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> S.count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="10、输出栈中内容"><a href="#10、输出栈中内容" class="headerlink" title="10、输出栈中内容"></a>10、输出栈中内容</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 输出栈中内容</span></span><br><span class="line"><span class="comment"> * @param S 栈顶指针</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintStack</span><span class="params">(LinkedStack S)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 指针指向栈顶</span></span><br><span class="line">    LinkedStackPtr ptr = S.top;</span><br><span class="line">    <span class="comment">// 循环输出</span></span><br><span class="line">    <span class="keyword">while</span> (ptr) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; ptr-&gt;data &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        ptr = ptr-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
+<ol>
+<li>大话数据结构&emsp;2019-06-10</li>
+</ol>
+</blockquote>
 
       
     </div>
@@ -491,6 +437,8 @@
           
             <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
           
+            <a href="/tags/链式存储结构/" rel="tag"><i class="fa fa-tag"></i> 链式存储结构</a>
+          
             <a href="/tags/栈/" rel="tag"><i class="fa fa-tag"></i> 栈</a>
           
         </div>
@@ -504,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/30/数据结构-双向链表/" rel="next" title="数据结构-双向链表">
-                <i class="fa fa-chevron-left"></i> 数据结构-双向链表
+              <a href="/2019/06/06/数据结构-静态栈/" rel="next" title="数据结构-静态栈">
+                <i class="fa fa-chevron-left"></i> 数据结构-静态栈
               </a>
             
           </div>
@@ -513,10 +461,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/06/数据结构-静态栈/" rel="prev" title="数据结构-静态栈">
-                数据结构-静态栈 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -673,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构-栈"><span class="nav-text">数据结构-栈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、栈的定义"><span class="nav-text">1、栈的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、栈的基本操作"><span class="nav-text">2、栈的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、栈的抽象数据类型"><span class="nav-text">3、栈的抽象数据类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构-链式栈"><span class="nav-text">数据结构-链式栈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、链式栈的简介"><span class="nav-text">1、链式栈的简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、链式栈的存储结构"><span class="nav-text">2、链式栈的存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、链式栈的初始化"><span class="nav-text">3、链式栈的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、链式栈的插入（压栈，入栈）"><span class="nav-text">4、链式栈的插入（压栈，入栈）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、链式栈的删除（弹栈、出栈）"><span class="nav-text">5、链式栈的删除（弹栈、出栈）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、链式栈的清空"><span class="nav-text">6、链式栈的清空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、获取栈中的元素"><span class="nav-text">7、获取栈中的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、判断栈是否为空"><span class="nav-text">8、判断栈是否为空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9、栈的长度"><span class="nav-text">9、栈的长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10、输出栈中内容"><span class="nav-text">10、输出栈中内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
 
           </div>

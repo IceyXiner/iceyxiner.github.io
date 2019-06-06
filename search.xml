@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[数据结构-链式栈]]></title>
+    <url>%2F2019%2F06%2F10%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E5%BC%8F%E6%A0%88%2F</url>
+    <content type="text"><![CDATA[数据结构-链式栈1、链式栈的简介 &emsp;&emsp;栈（stack）又名堆栈，它是一种运算受限的线性表。其限制是仅允许在表的一端进行插入和删除运算。这一端被称为栈顶，相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。 2、链式栈的存储结构 1234567891011121314typedef SElemtype int// 栈结点typedef struct StackNode &#123; SElemtype data; struct StackNode *next;&#125; StackNode, *LinkedStackPtr;// 栈顶结构typedef struct LinkedStack &#123; // 栈顶指针 LinkedStackPtr top; // 栈内元素个数 int count = 0;&#125; LinkedStack; 3、链式栈的初始化123456789101112131415161718192021/** * 初始化栈内元素 * @param S 栈顶指针 * @param n 初始化元素个数 */void InitLinkedStack(LinkedStack *S, int n) &#123; // 定义栈顶指针 LinkedStackPtr p; // 初始化随机种子 srand(time_t(0)); // LOOP for (int i = 0; i &lt; n; ++i) &#123; // 给栈结点分配内存空间 p = (LinkedStackPtr) malloc(sizeof(StackNode)); p-&gt;data = rand() % 100 + 1; // 压栈 p-&gt;next = S-&gt;top; S-&gt;top = p; &#125; S-&gt;count = n;&#125; 4、链式栈的插入（压栈，入栈） 12345678910111213141516/** * 压栈 * @param S 栈顶指针 * @param e 压入栈的元素 * @return Status */Status Push(LinkedStack *S, SElemtype e) &#123; // 为栈节点分配内存空间 LinkedStackPtr p = (LinkedStackPtr) malloc(sizeof(StackNode)); p-&gt;data = e; // 压栈 p-&gt;next = S-&gt;top; S-&gt;count++; S-&gt;top = p; return OK;&#125; 5、链式栈的删除（弹栈、出栈） 1234567891011121314151617181920212223/** * 弹栈 * @param S 栈顶指针 * @param e 弹出元素 * @return Status */Status Pop(LinkedStack *S, SElemtype *e = nullptr) &#123; LinkedStackPtr p; // 判断栈是否为空，空则不执行弹栈操作 if (!S-&gt;count) &#123; return ERROR; &#125; // 判断弹出元素地址是否为空，空则不执行赋值操作 if (e) *e = S-&gt;top-&gt;data; // 弹栈 p = S-&gt;top; S-&gt;top = S-&gt;top-&gt;next; S-&gt;count--; // 释放空间 free(p); return OK;&#125; 6、链式栈的清空123456789101112131415/** * 清空栈中内容 * @param S 栈顶指针 */void ClearLinkedStack(LinkedStack *S) &#123; LinkedStackPtr p; for (int i = 0; i &lt; S-&gt;count; ++i) &#123; // 循环删除结点，释放内存 p = S-&gt;top; S-&gt;top = S-&gt;top-&gt;next; free(p); &#125; // 计数器置零 S-&gt;count = 0;&#125; 7、获取栈中的元素123SElemtype GetLinkedStackTop(LinkedStack S) &#123; return S.top-&gt;data;&#125; 8、判断栈是否为空123bool IsEmpty(LinkedStack S) &#123; return !S.count;&#125; 9、栈的长度123int Length(LinkedStack S) &#123; return S.count;&#125; 10、输出栈中内容1234567891011121314/** * 输出栈中内容 * @param S 栈顶指针 */void PrintStack(LinkedStack S) &#123; // 指针指向栈顶 LinkedStackPtr ptr = S.top; // 循环输出 while (ptr) &#123; std::cout &lt;&lt; ptr-&gt;data &lt;&lt; " "; ptr = ptr-&gt;next; &#125; std::cout &lt;&lt; std::endl;&#125; 参考资料 大话数据结构&emsp;2019-06-10]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>链式存储结构</tag>
+        <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构-静态栈]]></title>
+    <url>%2F2019%2F06%2F06%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%9D%99%E6%80%81%E6%A0%88%2F</url>
+    <content type="text"><![CDATA[数据结构-静态栈1、静态栈的简介 &emsp;&emsp;栈（stack）又名堆栈，它是一种运算受限的线性表。其限制是仅允许在表的一端进行插入和删除运算。这一端被称为栈顶，相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。 2、静态栈的存储结构 1234567#define MAXSIZE 20typedef int SElemType;typedef struct &#123; SElemType data[MAXSIZE]; int top; // 栈顶指针&#125; StaticStack; 3、静态栈的初始化123456789101112/** * 初始化栈内元素 * @param S 栈顶指针 */void InitStack(StaticStack *S) &#123; for (int i = 0; i &lt; MAXSIZE - 1; ++i) &#123; // 整体初始化 S-&gt;data[i] = 0; &#125; // 栈顶指针指向标志值-1 S-&gt;top = -1;&#125; 4、静态栈的插入（压栈，入栈） 12345678910111213141516/** * 压栈 * @param S 栈顶指针 * @param e 压入栈的元素 * @return Status */Status Push(StaticStack *S, SElemType e) &#123; // 如果栈满,返回失败状态 if (S-&gt;top == MAXSIZE - 1) return ERROR; // 压栈,指针上升一位 S-&gt;top++; // 赋值 S-&gt;data[S-&gt;top] = e; return OK;&#125; 5、静态栈的删除（弹栈、出栈）12345678910111213141516/** * 弹栈 * @param S 栈顶指针 * @param e 弹出元素 * @return Status */Status Pop(StaticStack *S, SElemType *e) &#123; // 判断是否为栈底,是则返回失败状态 if (S-&gt;top == -1) return ERROR; // 取出弹出元素 *e = S-&gt;data[|S-&gt;top]; // 栈顶指针下降一位 S-&gt;top--; return OK;&#125; 6、静态栈的清空123void ClearStack(StaticStack S) &#123; S.top = -1;&#125; 7、获取栈中的元素123456Status GetTop(StaticStack S, SElemType *e) &#123; if (S.top == -1) return ERROR; *e = S.data[S.top]; return OK;&#125; 8、判断栈是否为空123bool IsEmpty(StaticStack S) &#123; return S.top == -1;&#125; 9、栈的长度123int Length(StaticStack S) &#123; return S.top + 1;&#125; 10、输出栈中内容12345678910/** * 输出栈中内容 * @param S 栈顶指针 */void PrintStack(StaticStack S) &#123; for (int i = S.top; i &gt;= 0; --i) &#123; std::cout &lt;&lt; S.data[i] &lt;&lt; " "; &#125; std::cout &lt;&lt; std::endl;&#125; 参考资料 大话数据结构&emsp;2019-06-06]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>栈</tag>
+        <tag>顺序存储结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数据结构-栈]]></title>
     <url>%2F2019%2F06%2F03%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88%2F</url>
     <content type="text"><![CDATA[数据结构-栈1、栈的定义 &emsp;&emsp;栈是限定仅在表尾进行插入和删除操作的线性表。我们把允许插入和删除的一端称为栈顶, 另一端称为栈底, 不含任何数据元素的栈称为空栈。栈又称为后进先出(Last In First Out)的线性表，简称LIFO结构。 2、栈的基本操作2.1 栈的插入操作(压栈、入栈) 2.2 栈的删除操作(弹栈、出栈) 3、栈的抽象数据类型 ADT 栈{stack) Data 同线性表。元素具有相同的类型，相邻元素具有前驱和后继关系。 Operation Description InitStack(*S) 初始化操作，建立一个空栈S DestroyStack(*S) 若栈存在，则销毁它 ClearStack(*S) 将栈清空 GetStackTop(S, *e) 若栈存在且非空，用e返回s的栈顶元素 Push(*s, e) 若栈S存在， 插入新元素e到栈S中并成为栈项元素g Pop(S, e) 删除栈s中栈顶元素，并用e返回其值 IsEmpty(S) 若栈为空，返回TRUE，否则返回FALSE Length(S) 返回栈s的元素个数]]></content>
@@ -23,7 +49,6 @@
         <tag>数据结构</tag>
         <tag>线性表</tag>
         <tag>链式存储结构</tag>
-        <tag>双向链表</tag>
       </tags>
   </entry>
   <entry>
@@ -37,7 +62,6 @@
         <tag>数据结构</tag>
         <tag>线性表</tag>
         <tag>链式存储结构</tag>
-        <tag>循环链表</tag>
       </tags>
   </entry>
   <entry>
@@ -51,7 +75,6 @@
         <tag>数据结构</tag>
         <tag>线性表</tag>
         <tag>链式存储结构</tag>
-        <tag>单链表</tag>
       </tags>
   </entry>
   <entry>
@@ -64,8 +87,7 @@
       <tags>
         <tag>数据结构</tag>
         <tag>线性表</tag>
-        <tag>链式存储结构</tag>
-        <tag>静态链表</tag>
+        <tag>顺序存储结构</tag>
       </tags>
   </entry>
   <entry>
